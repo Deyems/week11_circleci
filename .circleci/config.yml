@@ -10,18 +10,18 @@ jobs:
         steps:
             - checkout
             - restore_cache:
-                key: 
-                    - dependency-cache-server-{{ checksum "package.json" }}
+                keys: 
+                    - dependency-cache-server-{{ checksum "yarn.lock" }}
                     - dependency-cache-server
 
             - run: 
-                command: yarn --frozen-lockfile
+                command: yarn
                     
             - save_cache:
                 key: 
-                    - dependency-cache-server-{{ checksum "package.json" }}
+                    - dependency-cache-server-{{ checksum "yarn.lock" }}
                 paths:
-                    - ./node_modules
+                    - node_modules
                 
             - run:
                 command: yarn tsc
@@ -30,6 +30,6 @@ jobs:
                 command: yarn test
 
 workflows:
-    Test Server:
+    test-server:
         jobs:
             - build
