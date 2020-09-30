@@ -16,6 +16,8 @@ jobs:
             - run:
                 command: yarn tsc
             - run:
+                command: cp "../src/.env" "../dist/.env"
+            - run:
                 command: yarn test
 workflows:
     test-server:
