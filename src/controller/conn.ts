@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({
-    path: path.resolve(__dirname, '../', '.env')
-});
+// dotenv.config({
+//     path: path.resolve(__dirname, '../', '.env')
+// });
 
-const urlstring: any = process.env.DATABASE_URL
+const urlstring: string = "mongodb+srv://me:e5Px5NfyaqivEwt@cluster0-unnnh.gcp.mongodb.net/test-database";
 
 const dburl: string = urlstring;
 
