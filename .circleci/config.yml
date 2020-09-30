@@ -11,8 +11,9 @@ jobs:
         steps:
             - checkout
             - restore_cache:
-                key: dependency-cache-server-{{ checksum "package.json" }}
-                - dependency-cache-server
+                key: 
+                    - dependency-cache-server-{{ checksum "package.json" }}
+                    - dependency-cache-server
 
             - run: yarn --frozen-lockfile
 
