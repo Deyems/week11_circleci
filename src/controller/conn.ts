@@ -6,7 +6,7 @@ import path from 'path';
 //     path: path.resolve(__dirname, '../', '.env')
 // });
 
-const urlstring: string = "mongodb+srv://me:e5Px5NfyaqivEwt@cluster0-unnnh.gcp.mongodb.net/test-database";
+const urlstring: string = "mongodb+srv://me:e5Px5NfyaqivEwt@cluster0-unnnh.gcp.mongodb.net/ninthWk";
 
 const dburl: string = urlstring;
 
