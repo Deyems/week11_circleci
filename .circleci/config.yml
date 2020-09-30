@@ -1,0 +1,31 @@
+version: 2.1
+
+jobs:
+    Build my project:
+    build:
+        working_directory: ~/assOne
+        docker:
+            - image: cimg/node:10
+            - image: circleci/mongo:4.0.3
+
+        steps:
+            - checkout
+            - restore_cache:
+                key: dependency-cache-server-{{ checksum "package.json" }}
+                - dependency-cache-server
+
+            - run: yarn --frozen-lockfile
+
+            - save_cache:
+                key: dependency-cache-server-{{ checksum "package.json" }}
+                paths:
+                    - ./node_modules
+                
+            - run: yarn tsc
+
+            - run: yarn test
+
+workflows:
+    Test Server:
+        jobs:
+            - Build my project
