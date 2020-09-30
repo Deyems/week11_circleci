@@ -3,7 +3,7 @@ version: 2.1
 jobs:
     build:
         docker:
-            - image: cimg/node:12
+            - image: circleci/node:12
             - image: circleci/mongo
         steps:
             - checkout
@@ -12,7 +12,7 @@ jobs:
                     - dependency-cache-server-{{checksum "package.json"}}
                     - dependency-cache-server
             - run:
-                command: yarn
+                command: yarn install
             # - save_cache:
             #     key:
             #         - dependency-cache-server-{{checksum "yarn.lock"}}
