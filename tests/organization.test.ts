@@ -43,12 +43,12 @@ describe('Organization GET routes', () => {
     it('should return the Organization Just added to database', async (done) => {
         const params = {query:`mutation{
             createOrganization(organizations: {
-                organization_name: "Jollof Rice house",
-                marketValue: 50,
+                organization_name: "Jollof Rice house3",
+                marketValue: 60,
                 address: "Gombe road Street",
                 ceo: "Superfan",
                 country: "Brazil",
-                products: [ "ClipBoard", "Permutate" ],
+                products: [ "Permutate", "ClipBoard" ],
                 employees: [ "Starter Man", "Body" ]
                 })
                 {
@@ -79,9 +79,9 @@ describe('Organization GET routes', () => {
     it('should return the User Details Just added to database', async (done) => {
         const params = {query: `mutation{
                createUser(userDetails: {
-                 username: "Kabiru Hammad",
+                 username: "Kabiru Hammad2",
                  passkey: "12345",
-                 email: "adecob5@gym.com"
+                 email: "adecob51@gym.com"
                }){
                  username
                  email
@@ -189,7 +189,6 @@ describe('Organization GET routes', () => {
             }`};
         const res = await request.post('/graphql')
         .send(params);
-        // console.log('Deleted Details ', res.body);
         // expect(res.body.data.deleteById).toHaveProperty('employees');
         expect(res.body.data.deleteById).toHaveProperty('organization_name');
         done()
