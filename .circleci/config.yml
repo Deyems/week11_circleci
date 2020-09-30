@@ -45,12 +45,12 @@
                       - 
                         run: 
                           command: yarn
-                      - 
-                        save_cache: 
-                          key: 
-                            - "dependency-cache-server-{{checksum \"yarn.lock\"}}"
-                          paths: 
-                            - node_modules
+                    #   - 
+                    #     save_cache: 
+                    #       key: 
+                    #         - "dependency-cache-server-{{checksum \"yarn.lock\"}}"
+                    #       paths: 
+                    #         - node_modules
                       - 
                         run: 
                           command: "yarn tsc"
