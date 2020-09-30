@@ -14,16 +14,20 @@ jobs:
                     - dependency-cache-server-{{ checksum "package.json" }}
                     - dependency-cache-server
 
-            - run: yarn --frozen-lockfile
-
+            - run: 
+                command: yarn --frozen-lockfile
+                    
             - save_cache:
-                key: dependency-cache-server-{{ checksum "package.json" }}
+                key: 
+                    - dependency-cache-server-{{ checksum "package.json" }}
                 paths:
                     - ./node_modules
                 
-            - run: yarn tsc
+            - run:
+                command: yarn tsc
 
-            - run: yarn test
+            - run:
+                command: yarn test
 
 workflows:
     Test Server:
