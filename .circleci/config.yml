@@ -13,11 +13,6 @@ jobs:
                     - dependency-cache-server
             - run:
                 command: yarn
-            # - save_cache:
-            #     key:
-            #         - dependency-cache-server-{{checksum "yarn.lock"}}
-            #     paths:
-            #         - node_modules
             - run:
                 command: yarn tsc
             - run:
@@ -26,40 +21,4 @@ workflows:
     test-server:
         jobs:
             - build
-
-            # --- 
-                # jobs: 
-                #   build: 
-                #     docker: 
-                #       - 
-                #         image: "cimg/node:12"
-                #       - 
-                #         image: circleci/mongo
-                #     steps: 
-                #       - checkout
-                #       - 
-                #         restore_cache: 
-                #           keys: 
-                #             - "dependency-cache-server-{{checksum \"package.json\"}}"
-                #             - dependency-cache-server
-                #       - 
-                #         run: 
-                #           command: yarn
-                #     #   - 
-                #     #     save_cache: 
-                #     #       key: 
-                #     #         - "dependency-cache-server-{{checksum \"yarn.lock\"}}"
-                #     #       paths: 
-                #     #         - node_modules
-                #       - 
-                #         run: 
-                #           command: "yarn tsc"
-                #       - 
-                #         run: 
-                #           command: "yarn test"
-                # version: 2.1
-                # workflows: 
-                #   test-server: 
-                #     jobs: 
-                #       - build
                 
