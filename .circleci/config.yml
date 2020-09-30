@@ -4,31 +4,25 @@ jobs:
     build:
         working_directory: ~/assOne
         docker:
-            - image: cimg/node:10
-            - image: circleci/mongo:4.0.3
-
+            - image: cimg/node:12
+            - image: circleci/mongo
         steps:
             - checkout
             - restore_cache:
                 keys: 
                     - dependency-cache-server-{{ checksum "yarn.lock" }}
                     - dependency-cache-server
-
             - run: 
-                command: yarn
-                    
+                command: yarn                    
             - save_cache:
                 key: 
                     - dependency-cache-server-{{ checksum "yarn.lock" }}
                 paths:
-                    - node_modules
-                
+                    - node_modules                
             - run:
                 command: yarn tsc
-
             - run:
                 command: yarn test
-
 workflows:
     test-server:
         jobs:
