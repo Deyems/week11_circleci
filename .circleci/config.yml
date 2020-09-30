@@ -28,4 +28,4 @@ jobs:
 workflows:
     Test Server:
         jobs:
-            - build-my-project
+            - build
