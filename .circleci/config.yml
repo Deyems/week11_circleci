@@ -5,7 +5,6 @@ jobs:
         docker:
             - image: cimg/node:12
             - image: circleci/mongo
-            working_directory: ~/assOne
 
             steps:
             - checkout
