@@ -2,7 +2,6 @@ version: 2.1
 
 jobs:
     build-my-project:
-    build:
         working_directory: ~/assOne
         docker:
             - image: cimg/node:10
