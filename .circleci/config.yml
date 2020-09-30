@@ -16,7 +16,7 @@ jobs:
             - run:
                 command: yarn tsc
             - run:
-                command: cp "../src/.env" "../dist/.env"
+                command: cp "../src/.env" "../dist/"
             - run:
                 command: yarn test
 workflows:
