@@ -12,7 +12,7 @@ jobs:
                     - dependency-cache-server-{{checksum "package.json"}}
                     - dependency-cache-server
             - run:
-                command: yarn install
+                command: yarn
             # - save_cache:
             #     key:
             #         - dependency-cache-server-{{checksum "yarn.lock"}}
