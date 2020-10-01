@@ -1,4 +1,4 @@
-# GRAPHQL implementation
+<!-- # GRAPHQL implementation
 
 ### 1. Convert your rest API from week 8 task into GraphQL
 
@@ -77,4 +77,6 @@
   - Write a mutation to add details to `staffs`
   - Write a mutation to update details for `purchasedCars`
   - Write a mutation to update details for `allCars`
-  - Write a mutation to update details for `staffs`
+  - Write a mutation to update details for `staffs` -->
+# DONT CHECK ME
+- I will know you checked me
