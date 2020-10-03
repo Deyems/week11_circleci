@@ -1,10 +1,11 @@
 import supertest from 'supertest';
 const app = require('../src/app');
 const request = supertest(app)
+import mongoose from 'mongoose';
 
-// afterAll(() => {
-//     mongoose.connection.close();
-// });
+afterAll(() => {
+    mongoose.connection.close();
+});
 describe('Organization GET routes', () => {
     //ALL ORGANIZATIONS
     it('should return all organizations on database', async (done) => {
