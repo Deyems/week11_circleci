@@ -22,7 +22,7 @@ describe('Organization GET routes', () => {
         .end((err,res)=>{
             if(err) done(err);
             // console.log("the response",res.body.data.allOrganizations)
-            expect(res.body.data.allOrganizations).toEqual(expect.arrayContaining([{ceo: 'love3'}]));
+            expect(res.body.data.allOrganizations).toHaveProperty('organization_name');
             done()
         })
     });
@@ -50,7 +50,7 @@ describe('Organization GET routes', () => {
     it('should return the Organization Just added to database', async (done) => {
         const params = {query:`mutation{
             createOrganization(organizations: {
-                organization_name: "Jollof Rice house25",
+                organization_name: "Jollof Rice house26",
                 marketValue: 60,
                 address: "Gombe road Street",
                 ceo: "Superfan",
@@ -72,8 +72,8 @@ describe('Organization GET routes', () => {
         // console.log('RESPONSE ', res.body);
         expect(res.body.data.createOrganization).toHaveProperty('organization_name');
         expect(res.body.data.createOrganization).toHaveProperty('address');
-        expect(res.body.data.createOrganization.organization_name).toEqual('Jollof Rice house25');
-        expect(res.body.data.createOrganization.marketValue).toBe(50);
+        expect(res.body.data.createOrganization.organization_name).toEqual('Jollof Rice house26');
+        expect(res.body.data.createOrganization.marketValue).toBe(60);
         expect(res.body.data.createOrganization.address).toEqual('Gombe road Street');
         expect(res.body.data.createOrganization.ceo).toEqual('Superfan');
         expect(res.body.data.createOrganization.country).toEqual('Brazil');
@@ -86,9 +86,9 @@ describe('Organization GET routes', () => {
     it('should return the User Details Just added to database', async (done) => {
         const params = {query: `mutation{
                createUser(userDetails: {
-                 username: "Kabiru Hammad105",
+                 username: "Kabiru Hammad106",
                  passkey: "12345",
-                 email: "adecob1010@gym.com"
+                 email: "adecob1020@gym.com"
                }){
                  username
                  email
@@ -99,7 +99,7 @@ describe('Organization GET routes', () => {
         // console.log('Create uSER ', res.body);
         expect(res.body.data.createUser).toHaveProperty('username');
         expect(res.body.data.createUser).toHaveProperty('email');
-        expect(res.body.data.createUser).toEqual(expect.objectContaining({email: 'adecob1010@gym.com'}));
+        expect(res.body.data.createUser).toEqual(expect.objectContaining({email: 'adecob1020@gym.com'}));
         done()
     });
 
@@ -152,8 +152,8 @@ describe('Organization GET routes', () => {
     it('should return the Product Details Just posted to Application', async (done) => {
         const params = {query: `mutation{
                 updateProduct(id: "5f65f270d20fee668c1d79d3",
-                oldProduct: "Mongoose",
-                newProduct: "dynamodb"){
+                oldProduct: "dynamodb",
+                newProduct: "Mongoose"){
                     employees
                     organization_name,
                     products
@@ -164,7 +164,7 @@ describe('Organization GET routes', () => {
         expect(res.body.data.updateProduct).toHaveProperty('employees');
         expect(res.body.data.updateProduct).toHaveProperty('organization_name');
         expect(res.body.data.updateProduct).toHaveProperty('products');
-        expect(res.body.data.updateProduct.products).toContain('dynamodb');
+        expect(res.body.data.updateProduct.products).toContain('Mongoose');
         done()
     });
     
@@ -172,8 +172,8 @@ describe('Organization GET routes', () => {
     it('should return the Employee Details Just posted to Application', async (done) => {
         const params = {query: `mutation{
                 updateEmployee(id: "5f5f83233120da7d2304d780",
-                oldEmployee: "Magrette",
-                newEmployee: "Ibrahim"){
+                oldEmployee: "Ibrahim",
+                newEmployee: "Magrette"){
                     employees
                     organization_name
                 }
@@ -183,14 +183,14 @@ describe('Organization GET routes', () => {
         expect(res.body.data.updateEmployee).toHaveProperty('employees');
         expect(res.body.data.updateEmployee).toHaveProperty('organization_name');
         expect(res.body.data.updateEmployee).toHaveProperty('employees');
-        expect(res.body.data.updateEmployee.employees).toContain('Ibrahim');
+        expect(res.body.data.updateEmployee.employees).toContain('Magrette');
         done()
     });
     
     //DELETE AN ORGANIZATION 
     it('should return the Organization Details Just Deleted FROM Application', async (done) => {
         const params = {query: `mutation{
-                deleteById(id: "5f73a9f1770592ffc599a891"){
+                deleteById(id: "5f787547b5b45400ba606dbb"){
                 organization_name
                 }
             }`};
