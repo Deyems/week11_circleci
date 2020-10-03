@@ -43,7 +43,7 @@ describe('Organization GET routes', () => {
     it('should return the Organization Just added to database', async (done) => {
         const params = {query:`mutation{
             createOrganization(organizations: {
-                organization_name: "Jollof Rice house3",
+                organization_name: "Jollof Rice house5",
                 marketValue: 60,
                 address: "Gombe road Street",
                 ceo: "Superfan",
@@ -65,7 +65,7 @@ describe('Organization GET routes', () => {
         // console.log('RESPONSE ', res.body);
         expect(res.body.data.createOrganization).toHaveProperty('organization_name');
         expect(res.body.data.createOrganization).toHaveProperty('address');
-        expect(res.body.data.createOrganization.organization_name).toEqual('Jollof Rice house');
+        expect(res.body.data.createOrganization.organization_name).toEqual('Jollof Rice house5');
         expect(res.body.data.createOrganization.marketValue).toBe(50);
         expect(res.body.data.createOrganization.address).toEqual('Gombe road Street');
         expect(res.body.data.createOrganization.ceo).toEqual('Superfan');
@@ -79,9 +79,9 @@ describe('Organization GET routes', () => {
     it('should return the User Details Just added to database', async (done) => {
         const params = {query: `mutation{
                createUser(userDetails: {
-                 username: "Kabiru Hammad2",
+                 username: "Kabiru Hammad5",
                  passkey: "12345",
-                 email: "adecob51@gym.com"
+                 email: "adecob61@gym.com"
                }){
                  username
                  email
@@ -92,7 +92,7 @@ describe('Organization GET routes', () => {
         // console.log('Create uSER ', res.body);
         expect(res.body.data.createUser).toHaveProperty('username');
         expect(res.body.data.createUser).toHaveProperty('email');
-        expect(res.body.data.createUser).toEqual(expect.objectContaining({email: 'adecob5@gym.com'}));
+        expect(res.body.data.createUser).toEqual(expect.objectContaining({email: 'adecob61@gym.com'}));
         done()
     });
 
