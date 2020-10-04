@@ -135,7 +135,7 @@ describe('Organization GET routes', () => {
 		const params = {
 			query: `mutation{
             updateOrganization(id: "5f736819958bb3e5c2db10b0", organizations:{
-                organization_name: "Cushionary43",
+                organization_name: "Mountain43",
                 marketValue: 70,
                 address: "4, john bieber",
                 ceo: "Fola",
@@ -153,7 +153,7 @@ describe('Organization GET routes', () => {
 		// console.log('UPDATE org details ', res.body);
 		expect(res.body.data.updateOrganization).toHaveProperty('organization_name');
 		// expect(res.body.data.updateOrganization.organization_name).toBe
-		expect(res.body.data.updateOrganization.organization_name).toEqual('Cushionary43');
+		expect(res.body.data.updateOrganization.organization_name).toEqual('Mountain43');
 		expect(res.body.data.updateOrganization).toHaveProperty('address');
 		done();
 	});
@@ -163,8 +163,8 @@ describe('Organization GET routes', () => {
 		const params = {
 			query: `mutation{
                 updateProduct(id: "5f5f83233120da7d2304d780",
-                oldProduct: "long",
-                newProduct: "Django"){
+                oldProduct: "Django",
+                newProduct: "Mangonna"){
                     organization_name,
                     products
                 }
@@ -172,10 +172,10 @@ describe('Organization GET routes', () => {
 		};
 		const res = await request.post('/graphql').send(params);
 		// console.log('Product Update Array ', res.body.data.updateProduct.products);
-		expect(res.body.data.updateProduct).toHaveProperty('employees');
+		// expect(res.body.data.updateProduct).toHaveProperty('employees');
 		expect(res.body.data.updateProduct).toHaveProperty('organization_name');
 		expect(res.body.data.updateProduct).toHaveProperty('products');
-		expect(res.body.data.updateProduct.products).toContain('Django');
+		expect(res.body.data.updateProduct.products).toContain('Mangonna');
 		done();
 	});
 
@@ -184,8 +184,8 @@ describe('Organization GET routes', () => {
 		const params = {
 			query: `mutation{
                 updateEmployee(id: "5f5f83233120da7d2304d780",
-                oldEmployee: "Magrette",
-                newEmployee: "Adelabu"){
+                oldEmployee: "Adelabu",
+                newEmployee: "Macdonald"){
                     employees
                     organization_name
                 }
@@ -195,8 +195,8 @@ describe('Organization GET routes', () => {
 		// console.log('Employee Update ', res.body);
 		expect(res.body.data.updateEmployee).toHaveProperty('employees');
 		expect(res.body.data.updateEmployee).toHaveProperty('organization_name');
-		expect(res.body.data.updateEmployee).toHaveProperty('employees');
-		expect(res.body.data.updateEmployee.employees).toContain('Adelabu');
+		// expect(res.body.data.updateEmployee).toHaveProperty('employees');
+		expect(res.body.data.updateEmployee.employees).toContain('Macdonald');
 		done();
 	});
 
